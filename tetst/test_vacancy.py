@@ -21,5 +21,5 @@ def test_compare_salary():
     assert v2.compare_salary(v1) == "Java Developer имеет большую зарплату, чем Python Developer"
     assert v1.compare_salary(v1) == "Python Developer и Python Developer имеют одинаковые зарплаты"
 
-pytest
+
 

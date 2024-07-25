@@ -16,4 +16,4 @@ def test_add_vacancy(json_saver):
     assert len(data) == 1
     assert data[0]['title'] == "Python Developer"
 
-pytest
+
