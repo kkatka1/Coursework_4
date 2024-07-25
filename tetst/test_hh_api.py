@@ -15,4 +15,3 @@ def test_get_vacancies(hh_api):
         assert 'snippet' in vacancies['items'][0]
         assert 'responsibility' in vacancies['items'][0]['snippet']
 
-pytest
