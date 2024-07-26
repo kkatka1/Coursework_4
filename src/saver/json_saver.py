@@ -2,7 +2,7 @@ import os
 import json
 from .abstract_saver import Saver
 
-class JSONSaver:
+class JSONSaver(Saver):
     """Класс для сохранения вакансий в JSON файл
     Атрибуты:
     - file_path (str): Путь к файлу для сохранения вакансий
