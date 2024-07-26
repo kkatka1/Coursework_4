@@ -5,16 +5,8 @@ sys.path.append(os.path.join(os.path.dirname(__file__), 'src'))
 from src.hh_api.hh_api import HeadHunterAPI
 from src.vacancy.vacancy import Vacancy
 from src.saver.json_saver import JSONSaver
+from src.utils.utils import get_top_vacancies, filter_vacancies
 # import json
-
-
-def get_top_vacancies(vacancies, top_n):
-    """Получить топ N ваканстй по зп"""
-    return sorted(vacancies, key=lambda x: (x.salary or 0), reverse=True)[:top_n]
-
-def filter_vacancies(vacancies, filter_words):
-    """Фильтрация вакансий по ключевым словам в описании"""
-    return [v for v in vacancies if any(word in v.description.lower() for word in filter_words)]
 
 def user_interaction():
     """Функция взаимодействия с пользователем через консоль"""
@@ -45,16 +37,11 @@ def user_interaction():
                 if word in vacancy.description.lower():
                     print(f"Найдено ключевое слово '{word}' в описании")
 
-    #sorted_vacancies = sorted(filtered_vacancies, key=lambda x: (x.salary or 0), reverse=True)
-
-    top_vacancies = get_top_vacancies( filtered_vacancies, top_n)
+    top_vacancies = get_top_vacancies(filtered_vacancies, top_n)
     print(f"Топ {top_n} вакансий готов")
 
     for vacancy in top_vacancies:
-        print(f"Название: {vacancy.title}")
-        print(f"Ссылка: {vacancy.url}")
-        print(f"Зарплата: {vacancy.salary}")
-        print(f"Описание: {vacancy.description}")
+        print(vacancy)
         print("-" * 40)
 
 
